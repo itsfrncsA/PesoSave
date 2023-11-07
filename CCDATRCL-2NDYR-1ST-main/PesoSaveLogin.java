@@ -11,6 +11,9 @@ public class PesoSaveLogin extends JFrame {
     private JPanel contentPane;
     private JTextField usernameOrEmailField;
     private JPasswordField passwordField;
+    private JButton btnLogin; // Changed from JLabel to JButton
+    private JLabel lblCreateAccount;
+    private JLabel lblPesoSaveLogin;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -27,39 +30,48 @@ public class PesoSaveLogin extends JFrame {
 
     public PesoSaveLogin() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 600, 500);
+        setResizable(false); // Make the frame non-resizable
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // Calculate the center position
+        int centerX = (screenSize.width - 1280) / 2;
+        int centerY = (screenSize.height - 780) / 2;
+
+        // Set the frame's position and size
+        setBounds(centerX, centerY, 1280, 750);
+
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JLabel lblPesoSaveLogin = new JLabel("");
-        lblPesoSaveLogin.setBounds(0, 0, 600, 650);
-        lblPesoSaveLogin.setIcon(new ImageIcon("C:\\Users\\franc\\Desktop\\CCDATRCL-2NDYR-1ST-main\\Photos\\PesoSaveLogin.png"));
-        contentPane.add(lblPesoSaveLogin);
-
         usernameOrEmailField = new JTextField();
-        usernameOrEmailField.setBounds(80, 210, 250, 45);
+        usernameOrEmailField.setForeground(Color.BLACK);
+        usernameOrEmailField.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+        usernameOrEmailField.setBounds(74, 277, 372, 31);
+        usernameOrEmailField.setBackground(null);
+        usernameOrEmailField.setBorder(null);
+        usernameOrEmailField.setOpaque(false);
+        usernameOrEmailField.setColumns(10);
         contentPane.add(usernameOrEmailField);
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(80, 290, 250, 40);
+        passwordField.setForeground(Color.BLACK);
+        passwordField.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+        passwordField.setBackground(null);
+        passwordField.setBorder(null);
+        passwordField.setOpaque(false);
+        passwordField.setBounds(74, 351, 329, 37);
+        passwordField.setColumns(10);
         contentPane.add(passwordField);
 
-        JButton btnLogin = new JButton("Login");
-        btnLogin.setBounds(140, 370, 250, 45);
+        btnLogin = new JButton(""); 
+        btnLogin.setOpaque(false);
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setBorderPainted(false);
+        btnLogin.setBounds(85, 427, 361, 49);
         contentPane.add(btnLogin);
-
-        JLabel lblCreateAccount = new JLabel("Create an Account");
-        lblCreateAccount.setBounds(350, 360, 150, 160);
-        contentPane.add(lblCreateAccount);
-
-        lblCreateAccount.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                openRegistrationForm();
-            }
-        });
-
+        
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 String usernameOrEmail = usernameOrEmailField.getText();
@@ -72,6 +84,23 @@ public class PesoSaveLogin extends JFrame {
                 }
             }
         });
+        
+        lblPesoSaveLogin = new JLabel("");
+        lblPesoSaveLogin.setIcon(new ImageIcon("C:\\Users\\franc\\Desktop\\CCDATRCL-2NDYR-1ST-main\\Photos\\PesoSaveLogin.png"));
+        lblPesoSaveLogin.setBounds(0, 0, 1280, 770);
+        contentPane.add(lblPesoSaveLogin);
+
+        lblCreateAccount = new JLabel(""); // Assuming this is a label and not a button
+        lblCreateAccount.setBounds(224, 497, 186, 49);
+        contentPane.add(lblCreateAccount);
+        
+        lblCreateAccount.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                openRegistrationForm();
+            }
+        });
+
+       
     }
 
     private boolean authenticateUser(String usernameOrEmail, String password) {
