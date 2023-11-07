@@ -1,10 +1,4 @@
 
-
-/**
- * ExpenseIncomeEntry represents a single entry for expenses and incomes.
- * Each entry contains a date, description, amount, and type (expense or income).
- */
-
 public class ExpenseIncomeEntry {
 
     private String date;

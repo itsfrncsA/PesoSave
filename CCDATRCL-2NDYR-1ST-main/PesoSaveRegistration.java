@@ -25,9 +25,6 @@ public class PesoSaveRegistration extends JFrame {
 	private JButton btnLogin;
 	private JLabel lblPesoSaveRegister;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,9 +38,7 @@ public class PesoSaveRegistration extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public PesoSaveRegistration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false); // Make the frame non-resizable
@@ -91,7 +86,7 @@ public class PesoSaveRegistration extends JFrame {
         btnSignUp.setOpaque(false);
         btnSignUp.setContentAreaFilled(false);
         btnSignUp.setBorderPainted(false);
-        btnSignUp.setBounds(63, 448, 372, 48);
+        btnSignUp.setBounds(63, 500, 372, 48);
         contentPane.add(btnSignUp);
 		
 		JButton btnContinueWithEmail = new JButton(""); 
